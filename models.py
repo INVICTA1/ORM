@@ -1,6 +1,4 @@
 import peewee
-import datetime
-import databases
 
 db = peewee.MySQLDatabase('orm', user='admin', password='admin',
                           host='127.0.0.1', port=3306)
@@ -26,5 +24,4 @@ if __name__ == "__main__":
     try:
         Student.create_table()
     except peewee.OperationalError as e:
-        print(e)
         print("Table Student already exists!")

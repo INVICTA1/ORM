@@ -1,9 +1,7 @@
-from datetime import date
-from models import Student, db
-import logging
 import logging.config
+from models import Student
 from peewee import Model
-# logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
+
 logging.config.fileConfig(fname='app.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
@@ -44,7 +42,7 @@ def read_all_students(student):
         logger.error('Invalid select * students %s', e)
 
 
-def update_student_by_id(student:Model):
+def update_student_by_id(student: Model):
     try:
         id = int(input('Enter id: '))
         student = student.get_by_id(id)
